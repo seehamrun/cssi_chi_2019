@@ -1,0 +1,45 @@
+body {
+  background-color: darkslateblue;
+  margin: 10px;
+}
+
+h1 {
+  color: white;
+  display: inline-block;
+}
+
+img {
+  display: inline-block;
+}
+
+div {
+  padding: 10px;
+  text-align: center;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.pagetitle {
+  text-align: center;
+}
+
+.main {
+  border: solid white 2px;
+  padding: 10px;
+  text-align: center;
+}
+
+#star-img {
+    display: inline-block;
+    width: 50%;
+}
+
+#fortune {
+  font-size: 14px;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-align: center;
+}

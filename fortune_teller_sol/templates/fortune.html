@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <title>Fortune Teller App</title>
+   <link rel="stylesheet" type="text/css" href="/static/fortune-style.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="prepare_form">
+        <div class="pagetitle">
+          <h1>Prepare for Your Fortune</h1>
+          <p align="center">
+            <img src="/static/fortune-ball.png"/>
+          </p>
+        </div>
+        <div class="main">
+          <form method="get">
+            <label for="user_astrological_sign">Your Astrological Sign:</label>
+            <select name="user_astrological_sign">
+              <option value="Aquarius">Aquarius</option>
+              <option value="Pisces">Pisces</option>
+              <option value="Aires">Aires</option>
+              <option value="Taurus">Taurus</option>
+              <option value="Gemini">Gemini</option>
+              <option value="Cancer">Cancer</option>
+              <option value="Leo">Leo</option>
+              <option value="Virgo">Virgo</option>
+              <option value="Libra">Libra</option>
+              <option value="Scorpio">Scorpio</option>
+              <option value="Sagittarius">Sagittarius</option>
+              <option value="Capricorn">Capricorn</option>
+            </select>
+            <br>
+            <input type="checkbox" name="show_all" value="True">Show all the fortunes<br>
+            <input type="submit" value="Align the Stars!">
+          </form>
+        </div>
+      </div>
+
+      <div class="predicted_fortune">
+        {% if the_fortune is defined %}
+          <div class="pagetitle">
+            <h1>Your Fortune</h1>
+            <p align="center">
+              <img id="star-img" src="/static/stars.png"/>
+            </p>
+          </div>
+
+          <div>
+            <p>For a {{the_astro_sign}}, the stars say:</p>
+            <p id="fortune">{{the_fortune}}</p>
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="all_of_the_fortunes">
+        {% if all_fortunes is defined %}
+          <div class="pagetitle">
+            <h1> All Fortunes </h1>
+          </div>
+
+          <div class="main">
+            {% for fortune in all_fortunes %}
+            <p> {{fortune}}</p>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+    </div>
+  </body>
+</html>
