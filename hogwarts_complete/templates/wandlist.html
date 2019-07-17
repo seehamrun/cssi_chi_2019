@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <title>Classes</title>
+     <link rel="stylesheet" href="/static/style.css">
+     <link href="https://fonts.googleapis.com/css?family=Henny+Penny&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <h1> Welcome To Olivanders </h1>
+
+    {% if student is defined %}
+      <h1>{{student}}'s Wand</h1>
+    {% endif %}
+    <table>
+      <tr>
+        <th>Core</th>
+        <th>Length</th>
+        <th>Material</th>
+      </tr>
+      {% for each_wand in wand_list %}
+        <tr>
+          <td>{{each_wand.core}}</td>
+          <td>{{each_wand.length}}</td>
+          <td>{{each_wand.material}}</td>
+        </tr>
+      {% endfor %}
+    </table>
+
+  </body>
+</html>

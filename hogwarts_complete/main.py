@@ -55,6 +55,24 @@ class StudentsHandler(webapp2.RequestHandler):
         print(values["student_list"])
         self.response.write(template.render(values))
 
+class ClassesHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.write("classes")
+
+class WandsHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_env.get_template("templates/wandlist.html")
+        values = {}
+        student_input = self.request.get("student")
+
+        if student_input != "":
+            values["student"] = student_input
+            student_db = Student.query(Student.first_name == student_input).fetch()[0]
+            values["wand_list"] = Wand.query(Wand.owner_num == student_db.student_num)
+        else:
+            values["wand_list"] = Wand.query().fetch()
+        self.response.write(template.render(values))
+
 
 # This handler just creates some initial data in our datastore
 class LoadDataHandler(webapp2.RequestHandler):
@@ -66,5 +84,7 @@ app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/houses', HouseHandler),
     ('/students', StudentsHandler),
+    ('/wands', WandsHandler),
+    ('/classes', ClassesHandler),
     ('/seed_data', LoadDataHandler)
 ], debug=True)

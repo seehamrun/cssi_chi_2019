@@ -29,7 +29,7 @@ class Course(ndb.Model):
       location = ndb.StringProperty()
 
 # Enrollment tells us which student is enrolled in each class
-# student_id is the id of the student so there is a corresponding Student entry
+# student_num is the num of the student so there is a corresponding Student entry
 # with Student.student_num == Enrollment.student_num
 # course_name is the name of the class they are in, so there is Course entry
 # with Course.name == Enrollment.course_name

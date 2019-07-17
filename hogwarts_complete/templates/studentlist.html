@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-     <title>Students</title>
+     {% if house_info is defined %}
+       <title>{{house_info.name}} Students</title>
+     {% else %}
+        <title>Hogwarts students</title>
+     {% endif %}
+
+     <link rel="stylesheet" href="/static/style.css">
+     <link href="https://fonts.googleapis.com/css?family=Henny+Penny&display=swap" rel="stylesheet">
   </head>
   <body>
     {% if house_info is defined %}
-      <h1>Our {{house_info.name}} students - GO {{house_info.mascot}}s </h1>
+      <h1>{{house_info.name}} {{house_info.mascot}}s </h1>
     {% else %}
       <h1> Our Hogwarts students </h1>
     {% endif %}
