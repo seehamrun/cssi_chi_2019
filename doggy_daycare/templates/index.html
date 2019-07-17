@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Doggy Daycare</title>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+      <h1>Welcome to Doggy Daycare</h1>
+      <h3><i>where all dogs are treated with care</i></h3>
+
+      {% if success_message is defined %}
+        <h6><i>{{success_message}}</i></h6>
+      {% endif %}
+
+      <h4>Current dogclients</h4>
+      <table>
+        <tr>
+          <th>Puppy Name</th>
+          <th>Puppy Age</th>
+          <th>Bark Intensity</th>
+          <th>Color</th>
+          <th>Review</th>
+        </tr>
+          {% for dog in dogs %}
+            <tr>
+              <td>{{dog.name}}</td>
+              <td>{{dog.age}}</td>
+              <td>{{dog.bark_intensity}}</td>
+              <td>{{dog.color}}</td>
+              <td>{{dog.review}}</td>
+            </tr>
+          {% endfor %}
+      </table>
+
+      <h4>Previous Client? Give us a review!</h4>
+      <form method="post">
+        <div>Name: <input type="text" name="dogName"></div>
+        <div>Age: <input type="text" name="dogAge"></div>
+        <div>Color: <input type="text" name="dogColor"></div>
+        <div>Bark Intensity: <input type="text" name="dogBark"></div>
+        <div>Review: <input type="text" name="dogReview"></div>
+        <input type="submit">
+      </form>
+  </body>
+</html>
